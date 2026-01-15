@@ -282,3 +282,47 @@ h1 {
   opacity: 0.8;
   background-color: rgba(255, 255, 255, 0.1);
 }
+/* BOTÃO MENU MOBILE */
+.menu-mobile {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--claro);
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* AJUSTE NAV */
+.navegacao {
+  display: flex;
+  justify-content: center;
+}
+
+/* RESPONSIVO - MOBILE (iPhone XR) */
+@media (max-width: 768px) {
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.95);
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    display: none;
+  }
+
+  .menu.ativo {
+    display: flex;
+  }
+
+  .menu-link {
+    font-size: 1.2rem;
+  }
+
+  .menu-mobile {
+    display: block;
+  }
+}

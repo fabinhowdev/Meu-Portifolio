@@ -12,29 +12,23 @@
 
 
     <nav class="navegacao">
-      <ul id="menu" class="menu">
-        <li>
-          <a href="#inicio" class="menu-link"> Inicio </a>
-        </li>
-        <li>
-          <a href="#sobre" class="menu-link"> Sobre </a>
-        </li>
-        <li>
-          <a href="#projetos" class="menu-link"> Projetos </a>
-        </li>
-        <li>
-          <a href="#certificado" class="menu-link"> Certificados </a>
-        </li>
-        <li>
-          <a href="#contato" class="menu-link"> Contato </a>
-        </li>
-        
-          <li>
-           <a class="github" href="https://github.com/fabinhowdev" target="_blank" rel="noopener noreferrer"><img src="./img/github-mark-white.png" alt="GitHub"></a>
-          </li>
-        
-      </ul>
-    </nav>
+  <ul id="menu" class="menu">
+    <li><a href="#inicio" class="menu-link">Inicio</a></li>
+    <li><a href="#sobre" class="menu-link">Sobre</a></li>
+    <li><a href="#projetos" class="menu-link">Projetos</a></li>
+    <li><a href="#certificado" class="menu-link">Certificados</a></li>
+    <li><a href="#contato" class="menu-link">Contato</a></li>
+
+    <li>
+      <a class="github" href="https://github.com/fabinhowdev" target="_blank">
+        <img src="./img/github-mark-white.png" alt="GitHub">
+      </a>
+    </li>
+  </ul>
+
+  <div class="menu-mobile" id="menu-mobile">☰</div>
+</nav>
+
 
     <main id="inicio" class="cabecalho">
       
@@ -111,7 +105,13 @@
     </section>
 
     <script>
-function enviarWhats(event){
+       const botaoMenu = document.getElementById("menu-mobile");
+  const menu = document.getElementById("menu");
+
+  botaoMenu.addEventListener("click", () => {
+    menu.classList.toggle("ativo");
+  });
+  function enviarWhats(event){
   event.preventDefault();
 
   const nome = document.getElementById('nome').value;
