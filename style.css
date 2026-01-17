@@ -3,6 +3,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: none;
+  color: inherit;
 }
 html {
   scroll-behavior: smooth;
@@ -144,7 +146,7 @@ h1 {
   margin-bottom: 5px;
 }
 
-.paragrao-projetos {
+.paragrafo-projetos {
   color: rgba(226, 232, 240, 0.8);
   line-height: 1.25rem;
 }
@@ -253,11 +255,8 @@ h1 {
   z-index: -1;
   opacity: 0.5;
   background-color: var(--maisEscuro);
-  background-image: radial-gradient(
-      circle at 10% 20%,
-      var(--primaria) 0%,
-      transparent 20%
-    ),
+  background-image:
+    radial-gradient(circle at 10% 20%, var(--primaria) 0%, transparent 20%),
     radial-gradient(circle at 90% 80%, var(--segundaria) 0%, transparent 20%);
 }
 
@@ -275,7 +274,9 @@ h1 {
   height: auto;
   display: flex;
   align-items: center;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 .github:hover img {
   transform: scale(1.15);
