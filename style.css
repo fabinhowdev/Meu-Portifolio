@@ -49,7 +49,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  background: linear-gradient(90deg, var(--primaria, --segundaria));
+  background: linear-gradient(90deg, var(--primaria), var(--segundaria));
   transition: width 0.5s ease;
 }
 .menu-link:hover::after {
@@ -62,7 +62,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
 }
 
 .foto-perfil {
@@ -102,7 +101,7 @@ h1 {
   margin: 0 auto;
   border-radius: 16px;
   border: 1px solid var(--vidro);
-  backdrop-filter: blur (10px);
+  backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -137,14 +136,14 @@ h1 {
 .projetos-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  backdrop-filter: blur 16px;
+  backdrop-filter: blur(16px);
   border: 1px solid var(--vidro);
   overflow: hidden;
   transition: all 0.7s ease;
   cursor: pointer;
 }
 
-.info-projetos {
+.info-projeto {
   margin-bottom: 5px;
 }
 
@@ -196,7 +195,7 @@ h1 {
   object-fit: cover;
 }
 
-.contatos {
+.contato {
   padding: 6rem 2rem;
 }
 
@@ -210,7 +209,7 @@ h1 {
   max-width: 600px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur (5px);
+  backdrop-filter: blur(5px);
   padding: 2rem;
   border: 1px solid var(--vidro);
   border-radius: 16px;
@@ -236,13 +235,13 @@ h1 {
 
 .botao-form {
   color: var(--claro);
-  background: linear-gradient(45deg, var(--primaria, var(--segundaria)));
+  background: linear-gradient(45deg, var(--primaria), var(--segundaria));
   padding: 1rem 2rem;
   border: none;
   border-radius: 8px;
   font-weight: bold;
   width: 100%;
-  transition: all 0.5 ease;
+  transition: all 0.5s ease;
 }
 .botao-form:hover {
   transform: translateY(-4px);
@@ -256,7 +255,7 @@ h1 {
   height: 100%;
   z-index: -1;
   opacity: 0.5;
-  background-color: var(--maisEscuro);
+  background-color: var(--maisescuro);
   background-image:
     radial-gradient(circle at 10% 20%, var(--primaria) 0%, transparent 20%),
     radial-gradient(circle at 90% 80%, var(--segundaria) 0%, transparent 20%);
@@ -292,7 +291,9 @@ h1 {
   display: flex;
   align-items: center;
   color: var(--claro);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 .linkedin:hover svg {
   transform: scale(1.15);
