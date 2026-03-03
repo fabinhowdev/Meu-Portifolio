@@ -285,6 +285,20 @@ h1 {
   opacity: 0.8;
   background-color: rgba(255, 255, 255, 0.1);
 }
+/* LinkedIn icon styling */
+.linkedin svg {
+  width: 28px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  color: var(--claro);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.linkedin:hover svg {
+  transform: scale(1.15);
+  opacity: 0.8;
+  background-color: rgba(255, 255, 255, 0.1);
+}
 /* BOTÃO MENU MOBILE */
 .menu-mobile {
   display: none;
