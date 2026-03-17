@@ -41,7 +41,14 @@
         <li><a href="#certificado" class="menu-link">Certificados</a></li>
         <li><a href="#contato" class="menu-link">Contato</a></li>
 
-        <li> <a class="github"href="https://github.com/fabinhowdev"target="_blank"rel="noopener noreferrer">
+        <li>
+          <a
+            class="github"
+            href="https://github.com/fabinhowdev"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
             <img src="./img/github-mark-white.png" alt="GitHub" />
           </a>
         </li>
@@ -81,51 +88,77 @@
     </section>
 
     <section id="projetos" class="projetos">
-      <div class="projetos-caixas">
-        <div class="projetos-card">
-          <img
-            src="./img/Projeto1.png"
-            alt="Projeto 1"
-            class="projetos-imagens"
-          />
-          <div class="caixa-texto-projetos">
-            <h3 class="info-projeto">Page de login dev</h3>
-            <p class="paragrafo-projetos">
-              Tela de login moderna com animações
-            </p>
-          </div>
-        </div>
+      <h2 class="projetos-titulos">Meus Projetos</h2>
 
       <div class="projetos-caixas">
-        <div class="projetos-card">
-          <a target="_blank" href="https://fabinhowdev.github.io/Linktree-Lkzmidia/">
-          <img
-            src="./img/Projeto2.png"
-            alt="Projeto 2"
-            class="projetos-imagens"
-          />
+        <article class="projetos-card">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://fabinhowdev.github.io/Linktree-Lkzmidia/"
+          >
+            <img
+              src="./img/projeto2.png"
+              alt="Preview do projeto Linktree para a agência LKZ Mídia"
+              class="projetos-imagens"
+              loading="lazy"
+            />
           </a>
           <div class="caixa-texto-projetos">
-            <h3 class="info-projeto">Linktree Para Agência</h3>
+            <h3 class="info-projeto">Linktree para Agência</h3>
             <p class="paragrafo-projetos">
-              Este portfólio apresenta alguns dos projetos desenvolvidos pela <b>LKZ MÍDIA</b>, com foco em criação de conteúdo visual, design e presença digital. Cada trabalho demonstra soluções criativas pensadas para fortalecer a identidade e o impacto das marcas nas redes sociais.
-
+              Este portfólio apresenta alguns dos projetos desenvolvidos pela
+              <b>LKZ MÍDIA</b>, com foco em criação de conteúdo visual, design e
+              presença digital.
             </p>
           </div>
-        </div>
+        </article>
+
+        <article class="projetos-card">
+          <a
+            href="https://raiz-jiujitsu-adc-prot.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="./img/projeto3.png"
+              alt="Preview do site institucional da academia Raiz Jiu-Jitsu"
+              class="projetos-imagens"
+              loading="lazy"
+            />
+          </a>
+          <div class="caixa-texto-projetos">
+            <h3 class="info-projeto">Site de Academia de Jiu-Jitsu</h3>
+            <p class="paragrafo-projetos">
+              Site institucional com foco em responsividade e experiência do
+              usuário, apresentando informações sobre a academia, modalidades e
+              contato.
+            </p>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="certificado" id="certificado">
       <h2 class="certificados-titulos">Meus Certificados</h2>
       <div class="certificados-caixas">
-        <div class="certificados-card">
+        <article class="certificados-card">
           <img
             src="./img/Certificado-front.jpg"
-            alt="certificado 1"
+            alt="Certificado de conclusão da formação Front-end na Udemy"
             class="certificado-imagem"
+            loading="lazy"
           />
-        </div>
+          <div class="certificado-conteudo">
+            <h3 class="certificado-nome">
+              Formação Front-end: HTML, CSS, JavaScript e React
+            </h3>
+            <p class="certificado-meta"><strong>Instituição:</strong> Udemy</p>
+            <p class="certificado-meta">
+              <strong>Conclusão:</strong> 28 de setembro de 2025
+            </p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -164,10 +197,18 @@
     <script>
       const botaoMenu = document.getElementById("menu-mobile");
       const menu = document.getElementById("menu");
+      const linksMenu = document.querySelectorAll(".menu-link");
 
       botaoMenu.addEventListener("click", () => {
         menu.classList.toggle("ativo");
       });
+
+      linksMenu.forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.remove("ativo");
+        });
+      });
+
       function enviarWhats(event) {
         event.preventDefault();
 
