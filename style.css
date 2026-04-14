@@ -123,6 +123,12 @@ main[id] {
   position: relative;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .brand {
   font-family: "Poppins", sans-serif;
   font-size: 1.32rem;
@@ -194,6 +200,30 @@ main[id] {
 
 .icon-link:hover,
 .icon-link:focus-visible {
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.lang-toggle {
+  min-width: 72px;
+  height: 40px;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-family: "Host Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.lang-toggle:hover,
+.lang-toggle:focus-visible {
   color: var(--bg);
   background: var(--accent);
   border-color: var(--accent);
@@ -783,6 +813,16 @@ main[id] {
 }
 
 @media (max-width: 900px) {
+  .nav-right {
+    margin-left: auto;
+  }
+
+  .lang-toggle {
+    min-width: 68px;
+    height: 44px;
+    font-size: 0.75rem;
+  }
+
   .menu-mobile {
     display: inline-flex;
   }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfólio | Fábio Luiz</title>
     <meta
+      id="meta-description"
       name="description"
       content="Portfólio de Fábio Luiz, desenvolvedor full-stack focado em interfaces modernas e aplicações web responsivas."
     />
@@ -26,85 +27,134 @@
       <nav class="nav container">
         <a href="#inicio" class="brand">Fabinhow<span>Dev</span></a>
 
-        <button
-          class="menu-mobile"
-          id="menu-mobile"
-          type="button"
-          aria-label="Abrir menu de navegação"
-          aria-controls="menu"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <div class="nav-right">
+          <ul id="menu" class="menu">
+            <li>
+              <a href="#inicio" class="menu-link" data-i18n="menu.home"
+                >Início</a
+              >
+            </li>
+            <li>
+              <a href="#sobre" class="menu-link" data-i18n="menu.about"
+                >Sobre</a
+              >
+            </li>
+            <li>
+              <a href="#habilidades" class="menu-link" data-i18n="menu.skills"
+                >Habilidades</a
+              >
+            </li>
+            <li>
+              <a href="#projetos" class="menu-link" data-i18n="menu.projects"
+                >Projetos</a
+              >
+            </li>
+            <li>
+              <a
+                href="#certificado"
+                class="menu-link"
+                data-i18n="menu.certificate"
+                >Certificado</a
+              >
+            </li>
+            <li>
+              <a href="#contato" class="menu-link" data-i18n="menu.contact"
+                >Contato</a
+              >
+            </li>
+            <li class="menu-social">
+              <a
+                href="https://www.linkedin.com/in/f%C3%A1bioluizalvesdonascimento/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                class="icon-link"
+              >
+                <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                  <path
+                    d="M6.94 8.74V19H3.54V8.74h3.4ZM5.25 7.35a1.97 1.97 0 1 1 0-3.94 1.97 1.97 0 0 1 0 3.94ZM20.46 19h-3.39v-5.02c0-1.2-.02-2.74-1.67-2.74-1.68 0-1.94 1.3-1.94 2.65V19h-3.39V8.74h3.25v1.4h.05c.45-.86 1.56-1.77 3.2-1.77 3.42 0 4.05 2.24 4.05 5.16V19Z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="menu-social">
+              <a
+                href="https://github.com/fabinhowdev"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                class="icon-link"
+              >
+                <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                  <path
+                    d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.82-.26.82-.58v-2.23c-3.34.73-4.04-1.6-4.04-1.6-.54-1.37-1.33-1.73-1.33-1.73-1.08-.74.09-.73.09-.73 1.2.08 1.82 1.22 1.82 1.22 1.05 1.8 2.76 1.28 3.43.97.11-.76.41-1.29.74-1.59-2.67-.3-5.47-1.33-5.47-5.9 0-1.31.47-2.39 1.22-3.23-.12-.3-.53-1.52.12-3.17 0 0 1-.33 3.3 1.23A11.44 11.44 0 0 1 12 6.1c1.01 0 2.04.14 2.99.42 2.28-1.56 3.28-1.23 3.28-1.23.66 1.65.25 2.87.12 3.17.77.84 1.22 1.92 1.22 3.23 0 4.58-2.8 5.6-5.48 5.9.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3Z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
 
-        <ul id="menu" class="menu">
-          <li><a href="#inicio" class="menu-link">Início</a></li>
-          <li><a href="#sobre" class="menu-link">Sobre</a></li>
-          <li><a href="#habilidades" class="menu-link">Habilidades</a></li>
-          <li><a href="#projetos" class="menu-link">Projetos</a></li>
-          <li><a href="#certificado" class="menu-link">Certificado</a></li>
-          <li><a href="#contato" class="menu-link">Contato</a></li>
-          <li class="menu-social">
-            <a
-              href="https://www.linkedin.com/in/f%C3%A1bioluizalvesdonascimento/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              class="icon-link"
-            >
-              <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-                <path
-                  d="M6.94 8.74V19H3.54V8.74h3.4ZM5.25 7.35a1.97 1.97 0 1 1 0-3.94 1.97 1.97 0 0 1 0 3.94ZM20.46 19h-3.39v-5.02c0-1.2-.02-2.74-1.67-2.74-1.68 0-1.94 1.3-1.94 2.65V19h-3.39V8.74h3.25v1.4h.05c.45-.86 1.56-1.77 3.2-1.77 3.42 0 4.05 2.24 4.05 5.16V19Z"
-                />
-              </svg>
-            </a>
-          </li>
-          <li class="menu-social">
-            <a
-              href="https://github.com/fabinhowdev"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              class="icon-link"
-            >
-              <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-                <path
-                  d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.82-.26.82-.58v-2.23c-3.34.73-4.04-1.6-4.04-1.6-.54-1.37-1.33-1.73-1.33-1.73-1.08-.74.09-.73.09-.73 1.2.08 1.82 1.22 1.82 1.22 1.05 1.8 2.76 1.28 3.43.97.11-.76.41-1.29.74-1.59-2.67-.3-5.47-1.33-5.47-5.9 0-1.31.47-2.39 1.22-3.23-.12-.3-.53-1.52.12-3.17 0 0 1-.33 3.3 1.23A11.44 11.44 0 0 1 12 6.1c1.01 0 2.04.14 2.99.42 2.28-1.56 3.28-1.23 3.28-1.23.66 1.65.25 2.87.12 3.17.77.84 1.22 1.92 1.22 3.23 0 4.58-2.8 5.6-5.48 5.9.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3Z"
-                />
-              </svg>
-            </a>
-          </li>
-        </ul>
+          <button
+            id="language-toggle"
+            class="lang-toggle"
+            type="button"
+            aria-label="Traduzir portfólio para inglês"
+          >
+            EN
+          </button>
+
+          <button
+            class="menu-mobile"
+            id="menu-mobile"
+            type="button"
+            aria-label="Abrir menu de navegação"
+            aria-controls="menu"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </nav>
     </header>
 
     <main id="inicio" class="hero section container reveal">
       <div class="hero-copy">
-        <p class="kicker">Portfólio</p>
-        <h1>Fábio Luiz <span>Desenvolvedor Full-Stack</span></h1>
-        <p class="hero-text">
+        <p class="kicker" data-i18n="hero.kicker">Portfólio</p>
+        <h1>
+          Fábio Luiz <span data-i18n="hero.role">Desenvolvedor Full-Stack</span>
+        </h1>
+        <p class="hero-text" data-i18n="hero.text">
           Construo experiências digitais modernas com foco em performance,
           clareza visual e código organizado. Estou em evolução contínua para
           transformar ideias em projetos profissionais.
         </p>
         <div class="hero-actions">
-          <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
-          <a href="#contato" class="btn btn-outline">Falar Comigo</a>
+          <a
+            href="#projetos"
+            class="btn btn-primary"
+            data-i18n="hero.ctaProjects"
+            >Ver Projetos</a
+          >
+          <a href="#contato" class="btn btn-outline" data-i18n="hero.ctaContact"
+            >Falar Comigo</a
+          >
         </div>
         <div class="stats-grid">
           <article class="stat-card">
             <strong>2+</strong>
-            <span>Projetos publicados</span>
+            <span data-i18n="hero.statsProjects">Projetos publicados</span>
           </article>
           <article class="stat-card">
             <strong>1</strong>
-            <span>Certificação concluída</span>
+            <span data-i18n="hero.statsCertificate"
+              >Certificação concluída</span
+            >
           </article>
           <article class="stat-card">
             <strong>100%</strong>
-            <span>Foco em evolução diária</span>
+            <span data-i18n="hero.statsFocus">Foco em evolução diária</span>
           </article>
         </div>
       </div>
@@ -114,6 +164,7 @@
         <img
           src="./img/Foto Fabio.JPEG"
           alt="Foto de Fábio Luiz"
+          data-i18n-alt="hero.photoAlt"
           class="hero-photo"
         />
       </div>
@@ -121,21 +172,21 @@
 
     <section id="sobre" class="section container reveal">
       <div class="section-head">
-        <p class="kicker">Sobre mim</p>
-        <h2>Quem sou eu no código e no dia a dia</h2>
+        <p class="kicker" data-i18n="about.kicker">Sobre mim</p>
+        <h2 data-i18n="about.title">Quem sou eu no código e no dia a dia</h2>
       </div>
       <article class="about-card">
-        <p>
+        <p data-i18n="about.p1">
           Sou estudante de Engenharia de Software e desenvolvedor em formação,
           com foco em aplicações web funcionais e interfaces que valorizam a
           experiência do usuário.
         </p>
-        <p>
+        <p data-i18n="about.p2">
           Tenho conhecimento em HTML, CSS e JavaScript, aplicando boas práticas
           de semântica, responsividade, versionamento com Git e organização de
           componentes.
         </p>
-        <p>
+        <p data-i18n="about.p3">
           Meu objetivo é evoluir para projetos cada vez mais robustos, com
           código limpo, boa arquitetura e impacto real para pessoas e negócios.
         </p>
@@ -144,8 +195,8 @@
 
     <section id="habilidades" class="section container reveal">
       <div class="section-head">
-        <p class="kicker">Conhecimento</p>
-        <h2>Habilidades em destaque</h2>
+        <p class="kicker" data-i18n="skills.kicker">Conhecimento</p>
+        <h2 data-i18n="skills.title">Habilidades em destaque</h2>
       </div>
       <div class="skills-grid">
         <article class="skill-card">
@@ -217,19 +268,22 @@
 
     <section id="projetos" class="section container reveal">
       <div class="section-head">
-        <p class="kicker">Portfólio</p>
-        <h2>Projetos em destaque</h2>
+        <p class="kicker" data-i18n="projects.kicker">Portfólio</p>
+        <h2 data-i18n="projects.title">Projetos em destaque</h2>
       </div>
       <div class="projects-grid">
         <article class="project-card">
           <div class="project-header">
-            <span class="project-badge">Landing Page</span>
+            <span class="project-badge" data-i18n="projects.project1.badge"
+              >Landing Page</span
+            >
             <a
               href="https://fabinhowdev.github.io/Linktree-Lkzmidia/"
               target="_blank"
               rel="noopener noreferrer"
               class="project-link"
               aria-label="Abrir projeto Linktree para Agência"
+              data-i18n-aria-label="projects.project1.openLabel"
               >↗</a
             >
           </div>
@@ -242,12 +296,13 @@
             <img
               src="./img/projeto2.png"
               alt="Preview do projeto Linktree para a agência LKZ Mídia"
+              data-i18n-alt="projects.project1.alt"
               class="project-image"
               loading="lazy"
             />
           </a>
-          <h3>Linktree para Agência</h3>
-          <p>
+          <h3 data-i18n="projects.project1.title">Linktree para Agência</h3>
+          <p data-i18n="projects.project1.description">
             Página para apresentação de serviços e canais da LKZ Mídia, com foco
             em identidade visual e direcionamento rápido para conversão.
           </p>
@@ -260,13 +315,16 @@
 
         <article class="project-card">
           <div class="project-header">
-            <span class="project-badge">Site Institucional</span>
+            <span class="project-badge" data-i18n="projects.project2.badge"
+              >Site Institucional</span
+            >
             <a
               href="https://raiz-jiujitsu-adc-prot.netlify.app/"
               target="_blank"
               rel="noopener noreferrer"
               class="project-link"
               aria-label="Abrir projeto Site de Academia de Jiu-Jitsu"
+              data-i18n-aria-label="projects.project2.openLabel"
               >↗</a
             >
           </div>
@@ -279,12 +337,15 @@
             <img
               src="./img/projeto3.png"
               alt="Preview do site institucional da academia Raiz Jiu-Jitsu"
+              data-i18n-alt="projects.project2.alt"
               class="project-image"
               loading="lazy"
             />
           </a>
-          <h3>Site de Academia de Jiu-Jitsu</h3>
-          <p>
+          <h3 data-i18n="projects.project2.title">
+            Site de Academia de Jiu-Jitsu
+          </h3>
+          <p data-i18n="projects.project2.description">
             Projeto responsivo com apresentação da academia, modalidades e
             contato, priorizando navegação clara e layout de alto impacto
             visual.
@@ -295,70 +356,46 @@
             <span>JavaScript</span>
           </div>
         </article>
-
-        <article class="project-card">
-          <div class="project-header">
-            <span class="project-badge">Portfólio Pessoal</span>
-            <a
-              href="https://fabinhowdev.github.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-link"
-              aria-label="Abrir projeto Portfólio Pessoal"
-              >↗</a
-            >
-          </div>
-          <a
-            href="https://fabinhowdev.github.io/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-image-wrap"
-          >
-            <img
-              src="./img/Projeto1.png"
-              alt="Preview do projeto de portfólio pessoal"
-              class="project-image"
-              loading="lazy"
-            />
-          </a>
-          <h3>Portfólio Pessoal</h3>
-          <p>
-            Página autoral para consolidar perfil profissional, projetos e
-            certificações com organização visual moderna e performance.
-          </p>
-          <div class="project-tags">
-            <span>UI</span>
-            <span>Responsivo</span>
-            <span>Design System</span>
-          </div>
-        </article>
       </div>
     </section>
 
     <section id="certificado" class="section container reveal">
       <div class="section-head">
-        <p class="kicker">Formação</p>
-        <h2>Certificação</h2>
+        <p class="kicker" data-i18n="certificate.kicker">Formação</p>
+        <h2 data-i18n="certificate.title">Certificação</h2>
       </div>
       <article class="certificate-card">
         <img
           src="./img/Certificado-front.jpg"
           alt="Certificado de conclusão da formação Front-end na Udemy"
+          data-i18n-alt="certificate.alt"
           class="certificate-image"
           loading="lazy"
         />
         <div class="certificate-content">
-          <h3>Formação Front-end: HTML, CSS, JavaScript e React</h3>
-          <p><strong>Instituição:</strong> Udemy</p>
-          <p><strong>Conclusão:</strong> 28 de setembro de 2025</p>
+          <h3 data-i18n="certificate.courseTitle">
+            Formação Front-end: HTML, CSS, JavaScript e React
+          </h3>
+          <p>
+            <strong data-i18n="certificate.institutionLabel"
+              >Instituição:</strong
+            >
+            <span data-i18n="certificate.institutionValue">Udemy</span>
+          </p>
+          <p>
+            <strong data-i18n="certificate.conclusionLabel">Conclusão:</strong>
+            <span data-i18n="certificate.conclusionValue"
+              >28 de setembro de 2025</span
+            >
+          </p>
         </div>
       </article>
     </section>
 
     <section id="contato" class="section container reveal">
       <div class="section-head">
-        <p class="kicker">Contato</p>
-        <h2>Vamos construir algo juntos?</h2>
+        <p class="kicker" data-i18n="contact.kicker">Contato</p>
+        <h2 data-i18n="contact.title">Vamos construir algo juntos?</h2>
       </div>
 
       <div class="contact-grid">
@@ -394,26 +431,34 @@
 
         <form id="formulario" class="form-card">
           <div class="field-group">
-            <label for="nome">Nome</label>
+            <label for="nome" data-i18n="contact.form.nameLabel">Nome</label>
             <input
               type="text"
               name="nome"
               id="nome"
               placeholder="Seu nome"
+              data-i18n-placeholder="contact.form.namePlaceholder"
               required
             />
           </div>
           <div class="field-group">
-            <label for="mensagem">Mensagem</label>
+            <label for="mensagem" data-i18n="contact.form.messageLabel"
+              >Mensagem</label
+            >
             <textarea
               name="mensagem"
               id="mensagem"
               rows="6"
               placeholder="Fale um pouco sobre seu projeto"
+              data-i18n-placeholder="contact.form.messagePlaceholder"
               required
             ></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            data-i18n="contact.form.submit"
+          >
             Enviar no WhatsApp
           </button>
         </form>
@@ -422,76 +467,14 @@
 
     <footer class="footer">
       <p>
-        © <span id="ano-atual"></span> Fábio Nascimento. Todos os direitos
-        reservados.
+        © <span id="ano-atual"></span>
+        <span data-i18n="footer.rights"
+          >Fábio Nascimento. Todos os direitos reservados.</span
+        >
       </p>
-      <p>Transformando ideias em códigos.</p>
+      <p data-i18n="footer.tagline">Transformando ideias em códigos.</p>
     </footer>
 
-    <script>
-      const menuButton = document.getElementById("menu-mobile");
-      const menu = document.getElementById("menu");
-      const menuLinks = document.querySelectorAll(".menu-link");
-
-      function closeMenu() {
-        menu.classList.remove("ativo");
-        menuButton.classList.remove("ativo");
-        menuButton.setAttribute("aria-expanded", "false");
-      }
-
-      menuButton.addEventListener("click", () => {
-        const expanded = menuButton.getAttribute("aria-expanded") === "true";
-        menuButton.setAttribute("aria-expanded", String(!expanded));
-        menuButton.classList.toggle("ativo");
-        menu.classList.toggle("ativo");
-      });
-
-      menuLinks.forEach((link) => {
-        link.addEventListener("click", closeMenu);
-      });
-
-      const formulario = document.getElementById("formulario");
-      formulario.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const nome = document.getElementById("nome").value.trim();
-        const mensagem = document.getElementById("mensagem").value.trim();
-        const telefone = "5527999124763";
-
-        const texto = `Olá, me chamo ${nome}. ${mensagem}`;
-        const url = `https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`;
-
-        window.open(url, "_blank");
-      });
-
-      const revealElements = document.querySelectorAll(".reveal");
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.2 },
-      );
-
-      revealElements.forEach((element) => observer.observe(element));
-
-      const projectCards = document.querySelectorAll(".project-card");
-      projectCards.forEach((card) => {
-        card.addEventListener("mousemove", (event) => {
-          const rect = card.getBoundingClientRect();
-          const x = event.clientX - rect.left;
-          const y = event.clientY - rect.top;
-          card.style.setProperty("--mouse-x", `${x}px`);
-          card.style.setProperty("--mouse-y", `${y}px`);
-        });
-      });
-
-      document.getElementById("ano-atual").textContent =
-        new Date().getFullYear();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
