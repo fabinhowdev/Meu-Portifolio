@@ -31,6 +31,10 @@ body {
   position: relative;
 }
 
+body.menu-open {
+  overflow: hidden;
+}
+
 ul {
   list-style: none;
 }
@@ -45,6 +49,11 @@ img {
   display: block;
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 section[id],
 main[id] {
   scroll-margin-top: 94px;
@@ -57,6 +66,20 @@ main[id] {
 
 .section {
   padding: clamp(3.5rem, 8vw, 7.5rem) 0;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .bg-grid,
@@ -491,7 +514,7 @@ main[id] {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
 }
 
@@ -511,6 +534,7 @@ main[id] {
     transform 0.28s ease,
     border-color 0.28s ease,
     box-shadow 0.28s ease;
+  will-change: transform;
 }
 
 .project-card::before {
@@ -806,10 +830,6 @@ main[id] {
   .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 900px) {
@@ -888,13 +908,26 @@ main[id] {
   }
 
   .stats-grid,
-  .projects-grid,
   .skills-grid {
     grid-template-columns: 1fr;
   }
 
   .hero-actions .btn {
     width: 100%;
+  }
+}
+
+@media (hover: none) {
+  .project-card:hover,
+  .skill-card:hover,
+  .stat-card:hover,
+  .contact-card:hover,
+  .btn-primary:hover {
+    transform: none;
+  }
+
+  .project-card:hover::before {
+    opacity: 0;
   }
 }
 

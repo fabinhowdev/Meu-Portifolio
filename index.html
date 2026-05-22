@@ -9,6 +9,7 @@
       name="description"
       content="Portfólio de Fábio Luiz, desenvolvedor full-stack focado em interfaces modernas e aplicações web responsivas."
     />
+    <meta name="theme-color" content="#0a0a0a" />
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -143,7 +144,7 @@
         </div>
         <div class="stats-grid">
           <article class="stat-card">
-            <strong>2+</strong>
+            <strong id="projects-count">2+</strong>
             <span data-i18n="hero.statsProjects">Projetos publicados</span>
           </article>
           <article class="stat-card">
@@ -166,6 +167,8 @@
           alt="Foto de Fábio Luiz"
           data-i18n-alt="hero.photoAlt"
           class="hero-photo"
+          fetchpriority="high"
+          decoding="async"
         />
       </div>
     </main>
@@ -299,6 +302,7 @@
               data-i18n-alt="projects.project1.alt"
               class="project-image"
               loading="lazy"
+              decoding="async"
             />
           </a>
           <h3 data-i18n="projects.project1.title">Linktree para Agência</h3>
@@ -340,6 +344,7 @@
               data-i18n-alt="projects.project2.alt"
               class="project-image"
               loading="lazy"
+              decoding="async"
             />
           </a>
           <h3 data-i18n="projects.project2.title">
@@ -349,6 +354,49 @@
             Projeto responsivo com apresentação da academia, modalidades e
             contato, priorizando navegação clara e layout de alto impacto
             visual.
+          </p>
+          <div class="project-tags">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-badge" data-i18n="projects.project4.badge"
+              >Landing Page</span
+            >
+            <a
+              href="https://siteflweb.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link"
+              aria-label="Abrir projeto Site da Agência FL Sites"
+              data-i18n-aria-label="projects.project4.openLabel"
+              >↗</a
+            >
+          </div>
+          <a
+            href="https://siteflweb.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-image-wrap"
+          >
+            <img
+              src="./img/projeto4.png"
+              alt="Preview do projeto Site da Agência FL Sites"
+              data-i18n-alt="projects.project4.alt"
+              class="project-image"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+          <h3 data-i18n="projects.project4.title">Site da Agência FL Sites</h3>
+          <p data-i18n="projects.project4.description">
+            Landing page com foco em posicionamento digital da agência,
+            demonstrando benefícios, processo e chamadas para conversão de
+            leads.
           </p>
           <div class="project-tags">
             <span>HTML5</span>
@@ -371,6 +419,7 @@
           data-i18n-alt="certificate.alt"
           class="certificate-image"
           loading="lazy"
+          decoding="async"
         />
         <div class="certificate-content">
           <h3 data-i18n="certificate.courseTitle">
@@ -431,6 +480,9 @@
 
         <form id="formulario" class="form-card">
           <div class="field-group">
+            <label for="nome" class="sr-only" data-i18n="contact.form.nameLabel"
+              >Nome</label
+            >
             <input
               type="text"
               name="nome"
@@ -474,6 +526,6 @@
       <p data-i18n="footer.tagline">Transformando ideias em códigos.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>

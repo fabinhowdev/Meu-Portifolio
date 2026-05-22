@@ -53,6 +53,12 @@ const translations = {
     "projects.project2.title": "Site de Academia de Jiu-Jitsu",
     "projects.project2.description":
       "Projeto responsivo com apresentação da academia, modalidades e contato, priorizando navegação clara e layout de alto impacto visual.",
+    "projects.project4.badge": "Landing Page",
+    "projects.project4.openLabel": "Abrir projeto Site da Agência FL Sites",
+    "projects.project4.alt": "Preview do projeto Site da Agência FL Sites",
+    "projects.project4.title": "Site da Agência FL Sites",
+    "projects.project4.description":
+      "Landing page com foco em posicionamento digital da agência, demonstrando benefícios, processo e chamadas para conversão de leads.",
     "certificate.kicker": "Formação",
     "certificate.title": "Certificação",
     "certificate.alt":
@@ -124,6 +130,12 @@ const translations = {
     "projects.project2.title": "Jiu-Jitsu Academy Website",
     "projects.project2.description":
       "Responsive project featuring the academy, classes, and contact information, prioritizing clear navigation and a high-impact visual layout.",
+    "projects.project4.badge": "Landing Page",
+    "projects.project4.openLabel": "Open FL Sites agency website project",
+    "projects.project4.alt": "Preview of the FL Sites agency website project",
+    "projects.project4.title": "FL Sites Agency Website",
+    "projects.project4.description":
+      "Landing page focused on the agency's digital positioning, highlighting benefits, process, and conversion-oriented calls to action.",
     "certificate.kicker": "Education",
     "certificate.title": "Certification",
     "certificate.alt":
@@ -149,20 +161,31 @@ const translations = {
 
 const menuButton = document.getElementById("menu-mobile");
 const menu = document.getElementById("menu");
-const menuLinks = document.querySelectorAll(".menu-link");
+const nav = document.querySelector(".nav");
+const menuLinks = [...document.querySelectorAll(".menu-link")];
 const languageToggle = document.getElementById("language-toggle");
 const metaDescription = document.getElementById("meta-description");
-const formulario = document.getElementById("formulario");
+const form = document.getElementById("formulario");
+const nameInput = document.getElementById("nome");
+const messageInput = document.getElementById("mensagem");
+const projectCountElement = document.getElementById("projects-count");
+const yearElement = document.getElementById("ano-atual");
+const revealElements = [...document.querySelectorAll(".reveal")];
+const projectCards = [...document.querySelectorAll(".project-card")];
+const prefersReducedMotion =
+  window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+const supportsHover = window.matchMedia?.("(hover: hover)").matches ?? true;
 
 let currentLanguage = DEFAULT_LANGUAGE;
+
+function hasTranslation(dictionary, key) {
+  return key && Object.prototype.hasOwnProperty.call(dictionary, key);
+}
 
 function getSavedLanguage() {
   try {
     const storedLanguage = localStorage.getItem(STORAGE_KEY);
-    if (
-      storedLanguage &&
-      Object.prototype.hasOwnProperty.call(translations, storedLanguage)
-    ) {
+    if (storedLanguage && Object.prototype.hasOwnProperty.call(translations, storedLanguage)) {
       return storedLanguage;
     }
   } catch (error) {
@@ -187,10 +210,7 @@ function updateMenuButtonAriaLabel() {
 
   const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
   const labelKey = isExpanded ? "menu.closeLabel" : "menu.openLabel";
-  menuButton.setAttribute(
-    "aria-label",
-    translations[currentLanguage][labelKey],
-  );
+  menuButton.setAttribute("aria-label", translations[currentLanguage][labelKey]);
 }
 
 function updateLanguageButton() {
@@ -222,32 +242,28 @@ function applyLanguage(language) {
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.dataset.i18n;
-
-    if (key && dictionary[key]) {
+    if (hasTranslation(dictionary, key)) {
       element.textContent = dictionary[key];
     }
   });
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
     const key = element.dataset.i18nPlaceholder;
-
-    if (key && dictionary[key]) {
+    if (hasTranslation(dictionary, key)) {
       element.setAttribute("placeholder", dictionary[key]);
     }
   });
 
   document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
     const key = element.dataset.i18nAlt;
-
-    if (key && dictionary[key]) {
+    if (hasTranslation(dictionary, key)) {
       element.setAttribute("alt", dictionary[key]);
     }
   });
 
   document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
     const key = element.dataset.i18nAriaLabel;
-
-    if (key && dictionary[key]) {
+    if (hasTranslation(dictionary, key)) {
       element.setAttribute("aria-label", dictionary[key]);
     }
   });
@@ -256,33 +272,77 @@ function applyLanguage(language) {
   updateMenuButtonAriaLabel();
 }
 
-function closeMenu() {
+function isMenuExpanded() {
+  return menuButton?.getAttribute("aria-expanded") === "true";
+}
+
+function syncMenuState(isOpen) {
   if (!menuButton || !menu) {
     return;
   }
 
-  menu.classList.remove("ativo");
-  menuButton.classList.remove("ativo");
-  menuButton.setAttribute("aria-expanded", "false");
+  menu.classList.toggle("ativo", isOpen);
+  menuButton.classList.toggle("ativo", isOpen);
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+  document.body.classList.toggle("menu-open", isOpen);
   updateMenuButtonAriaLabel();
 }
 
-if (menuButton && menu) {
-  menuButton.addEventListener("click", () => {
-    const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
-
-    menuButton.setAttribute("aria-expanded", String(!isExpanded));
-    menuButton.classList.toggle("ativo");
-    menu.classList.toggle("ativo");
-    updateMenuButtonAriaLabel();
-  });
+function closeMenu() {
+  syncMenuState(false);
 }
 
-menuLinks.forEach((link) => {
-  link.addEventListener("click", closeMenu);
-});
+function toggleMenu() {
+  syncMenuState(!isMenuExpanded());
+}
 
-if (languageToggle) {
+function initializeMenuInteractions() {
+  if (!menuButton || !menu) {
+    return;
+  }
+
+  menuButton.addEventListener("click", toggleMenu);
+  menuLinks.forEach((link) => link.addEventListener("click", closeMenu));
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && isMenuExpanded()) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!isMenuExpanded()) {
+      return;
+    }
+
+    const target = event.target;
+    if (!(target instanceof Element)) {
+      return;
+    }
+
+    if (menu.contains(target) || menuButton.contains(target)) {
+      return;
+    }
+
+    closeMenu();
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+      closeMenu();
+    }
+  });
+
+  if (nav && menu.contains(document.activeElement)) {
+    closeMenu();
+  }
+}
+
+function initializeLanguageToggle() {
+  if (!languageToggle) {
+    return;
+  }
+
   languageToggle.addEventListener("click", () => {
     const nextLanguage = currentLanguage === "pt-BR" ? "en" : "pt-BR";
     applyLanguage(nextLanguage);
@@ -290,14 +350,23 @@ if (languageToggle) {
   });
 }
 
-if (formulario) {
-  formulario.addEventListener("submit", (event) => {
+function initializeContactForm() {
+  if (!form || !nameInput || !messageInput) {
+    return;
+  }
+
+  form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const nome = document.getElementById("nome").value.trim();
-    const mensagem = document.getElementById("mensagem").value.trim();
-    const telefone = "5527999124763";
+    const nome = nameInput.value.trim();
+    const mensagem = messageInput.value.trim();
 
+    if (!nome || !mensagem) {
+      (!nome ? nameInput : messageInput).focus();
+      return;
+    }
+
+    const telefone = "5527999124763";
     const whatsappTemplate =
       translations[currentLanguage].contactWhatsAppMessage;
     const texto = whatsappTemplate
@@ -305,43 +374,102 @@ if (formulario) {
       .replace("{message}", mensagem);
     const url = `https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`;
 
-    window.open(url, "_blank", "noopener");
+    window.open(url, "_blank", "noopener,noreferrer");
   });
 }
 
-const revealElements = document.querySelectorAll(".reveal");
+function initializeRevealAnimation() {
+  if (!revealElements.length) {
+    return;
+  }
 
-if ("IntersectionObserver" in window) {
+  if (!("IntersectionObserver" in window) || prefersReducedMotion) {
+    revealElements.forEach((element) => element.classList.add("is-visible"));
+    return;
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
+        if (!entry.isIntersecting) {
+          return;
         }
+
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.2 },
+    { threshold: 0.15 },
   );
 
   revealElements.forEach((element) => observer.observe(element));
-} else {
-  revealElements.forEach((element) => element.classList.add("is-visible"));
 }
 
-const projectCards = document.querySelectorAll(".project-card");
+function initializeProjectCardHighlight() {
+  if (!projectCards.length || !supportsHover || prefersReducedMotion) {
+    return;
+  }
 
-projectCards.forEach((card) => {
-  card.addEventListener("mousemove", (event) => {
-    const rect = card.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+  projectCards.forEach((card) => {
+    let frameId = null;
 
-    card.style.setProperty("--mouse-x", `${x}px`);
-    card.style.setProperty("--mouse-y", `${y}px`);
+    card.addEventListener(
+      "pointermove",
+      (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        if (frameId) {
+          cancelAnimationFrame(frameId);
+        }
+
+        frameId = requestAnimationFrame(() => {
+          card.style.setProperty("--mouse-x", `${x}px`);
+          card.style.setProperty("--mouse-y", `${y}px`);
+          frameId = null;
+        });
+      },
+      { passive: true },
+    );
+
+    card.addEventListener("pointerleave", () => {
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+        frameId = null;
+      }
+
+      card.style.removeProperty("--mouse-x");
+      card.style.removeProperty("--mouse-y");
+    });
   });
-});
+}
 
-document.getElementById("ano-atual").textContent = new Date().getFullYear();
+function updateProjectCount() {
+  if (!projectCountElement) {
+    return;
+  }
 
-applyLanguage(getSavedLanguage());
+  projectCountElement.textContent = `${projectCards.length}+`;
+}
+
+function updateFooterYear() {
+  if (!yearElement) {
+    return;
+  }
+
+  yearElement.textContent = new Date().getFullYear();
+}
+
+function init() {
+  updateProjectCount();
+  updateFooterYear();
+  applyLanguage(getSavedLanguage());
+  initializeMenuInteractions();
+  initializeLanguageToggle();
+  initializeContactForm();
+  initializeRevealAnimation();
+  initializeProjectCardHighlight();
+}
+
+init();
